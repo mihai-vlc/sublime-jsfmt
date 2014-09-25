@@ -1,4 +1,4 @@
-(This is *totally alpha* and you should only use it if you expect to contribute to it because its still alpha.)
+(This is *totally alpha* and you should only use it if you expect to contribute to it because its still fresh like ya butt.)
 
 # jsfmt for sublime text
 
@@ -32,6 +32,7 @@ Otherwise you're probably pretty levelheaded and will probably provide one in yo
 
 Rules you can intuit from these [esformatter preset files](https://github.com/millermedeiros/esformatter/tree/master/lib/preset).
 
+There's a `.jsfmtrc-sample` in this repo. It's a good start. Rename it and toss it somewhere. Try it out. 
 
 #### compatibility 
 
@@ -40,6 +41,6 @@ should work in both ST2 and ST3. I guess.
 
 ### contributing
 
-
+go wild. i'll add you as repo owner and/or transfer it to you. it's all <3
 
 
