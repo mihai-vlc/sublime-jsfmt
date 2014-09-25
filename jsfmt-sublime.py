@@ -5,7 +5,6 @@ import os
 # jsfmt must be installed as a global npm module
 BINARY_PATH = 'jsfmt'
 
-
 class FormatJavascript(sublime_plugin.TextCommand):
   def run(self, edit):
     if self.view.size() > 0 and self.view.file_name().endswith(".js"):
