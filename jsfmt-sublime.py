@@ -1,37 +1,76 @@
-import subprocess
-import sublime, sublime_plugin
-import os
+import sublime
+import sublime_plugin
+import json
+from os.path import dirname, realpath, join, splitext
 
-# jsfmt must be installed as a global npm module
+try:
+    # Python 2
+    from node_bridge import node_bridge
+except:
+    from .node_bridge import node_bridge
 
-class FormatJavascript(sublime_plugin.TextCommand):
-  def run(self, edit):
-    if self.view.size() > 0 and self.view.file_name().endswith(".js"):
-      try:
+# monkeypatch `Region` to be iterable
+sublime.Region.totuple = lambda self: (self.a, self.b)
+sublime.Region.__iter__ = lambda self: self.totuple().__iter__()
 
-        file_name = self.view.file_name()
-        fileExt = os.path.splitext(file_name)
-        file = fileExt[0]
-        ext = fileExt[1]
-        path = os.path.dirname(file)
-        file = os.path.basename(file)
+BIN_PATH = join(sublime.packages_path(), dirname(realpath(__file__)), 'jsfmt.js')
+SETTINGS_FILE = 'jsfmt.sublime-settings'
 
-        region = sublime.Region(0, self.view.size())
-        content = self.view.substr(region)
 
-        p = subprocess.Popen('jsfmt "' + file_name + '"', 
-          cwd=path, shell=True, 
-          stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        stdout, stderr = p.communicate()
+settings = sublime.load_settings(SETTINGS_FILE)
 
-        if stderr:
-          print(stderr.decode('utf-8'))
-        elif stdout:
-          self.view.replace(edit, region, stdout.decode('utf-8'))
+def plugin_loaded():
+    global settings
+    settings = sublime.load_settings(SETTINGS_FILE)
 
-      finally:
-        self.view.end_edit(edit)
+class FormatJavascriptCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        if not self.has_selection():
+            region = sublime.Region(0, self.view.size())
+            originalBuffer = self.view.substr(region)
+            formated = self.jsfmt(originalBuffer)
+            if formated:
+                self.view.replace(edit, region, formated)
+            return
+        # handle selections
+        for region in self.view.sel():
+            if region.empty():
+                continue
+            originalBuffer = self.view.substr(region)
+            formated = self.jsfmt(originalBuffer)
+            if formated:
+                self.view.replace(edit, region, formated)
+
+    def jsfmt(self, data):
+        try:
+            return node_bridge(data, BIN_PATH, [json.dumps(settings.get('options'))])
+        except Exception as e:
+            sublime.error_message('JSFMT\n%s' % e)
+
+    def has_selection(self):
+        for sel in self.view.sel():
+            start, end = sel
+            if start != end:
+                return True
+        return False
+
+
 
 class CommandOnSave(sublime_plugin.EventListener):
   def on_pre_save(self, view):
-    view.run_command("format_javascript")
+    ext = splitext(view.file_name())[1][1:]
+    if settings.get('autoformat') and ext in settings.get('extensions', ['js']):
+        view.run_command("format_javascript")
+
+
+class ToggleFormatJavascriptCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        if settings.get('autoformat', False):
+            settings.set('autoformat', False)
+        else:
+            settings.set('autoformat', True)
+
+        sublime.save_settings(SETTINGS_FILE)
+
+    def is_checked(self):
+        return settings.get('autoformat', False)
