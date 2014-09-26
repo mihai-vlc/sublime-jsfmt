@@ -20,7 +20,6 @@ cd ~/Library/"Application Support/Sublime Text 2"/Packages
 # clone this repo
 git clone https://github.com/paulirish/sublime-jsfmt
 ```
-I guess. 
 
 This is very much NOT on package control because it its still a new thing. Try it out. If its working for you and you want to help run the show I'll transfer the repo to you and you can go to town. 
 
@@ -36,7 +35,7 @@ There's a `.jsfmtrc-sample` in this repo. It's a good start. Rename it and toss 
 
 #### compatibility 
 
-should work in both ST2 and ST3. I guess. 
+should work in both ST2 and ST3.
 
 
 ### contributing
