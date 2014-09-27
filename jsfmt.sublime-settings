@@ -2,13 +2,28 @@
     "autoformat": false,
 
     // array of extensions for autoformat
-    "extensions": ["js"],
+    "extensions": ["js", "sublime-settings"],
 
     // options for jsfmt
     "options": {
         "preset": "jquery",
         "indent": {
             "value": "    "
+        },
+        // plugins included
+        "plugins": [
+            // "esformatter-quotes",
+            // "esformatter-semicolons",
+            // "esformatter-braces",
+            // "esformatter-dot-notation"
+        ]
+    },
+    "options-JSON": {
+        "plugins": [
+            "esformatter-quotes"
+        ],
+        "quotes": {
+            "type": "double"
         }
     }
 }
