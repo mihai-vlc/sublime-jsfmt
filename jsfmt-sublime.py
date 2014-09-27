@@ -19,8 +19,8 @@ class FormatJavascript(sublime_plugin.TextCommand):
         region = sublime.Region(0, self.view.size())
         content = self.view.substr(region)
 
-        p = subprocess.Popen('jsfmt "' + file_name + '"', 
-          cwd=path, shell=True, 
+        p = subprocess.Popen('jsfmt "' + file_name + '"',
+          cwd=path, shell=True,
           stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = p.communicate()
 
