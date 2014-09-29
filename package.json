@@ -1,6 +1,10 @@
 {
   "name": "sublime-jsfmt",
   "dependencies": {
+    "esformatter-braces": "^0.2.0",
+    "esformatter-dot-notation": "^0.1.2",
+    "esformatter-quotes": "^1.0.0",
+    "esformatter-semicolons": "^1.0.3",
     "get-stdin": "^3.0.0",
     "jsfmt": "^0.4.0"
   },
