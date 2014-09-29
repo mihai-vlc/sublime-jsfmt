@@ -26,6 +26,12 @@ This is very much NOT on package control because it its still a new thing. Try i
 If its working for you and you want to help run the show I'll transfer the repo to 
 you and you can go to town. 
 
+### Plugins icluded
+- [esformatter-braces](https://github.com/pgilad/esformatter-braces)
+- [esformatter-semicolons](https://github.com/bulyshko/esformatter-semicolons)
+- [esformatter-dot-notation](https://github.com/pgilad/esformatter-dot-notation)
+- [esformatter-quotes](https://github.com/millermedeiros/esformatter-quotes)
+
 ### Formatting rules
 
 You can set global rules via a `.jsfmtrc`. Be crazy and establish one for all your 

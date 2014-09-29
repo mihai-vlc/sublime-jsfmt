@@ -28,7 +28,7 @@ class FormatJavascriptCommand(sublime_plugin.TextCommand):
         if not self.has_selection():
             region = sublime.Region(0, self.view.size())
             originalBuffer = self.view.substr(region)
-            formated = self.jsfmt(originalBuffer)
+            formated = self.jsfmt(originalBuffer, self.get_scope(region))
             if formated:
                 self.view.replace(edit, region, formated)
             return
@@ -37,13 +37,18 @@ class FormatJavascriptCommand(sublime_plugin.TextCommand):
             if region.empty():
                 continue
             originalBuffer = self.view.substr(region)
-            formated = self.jsfmt(originalBuffer)
+            formated = self.jsfmt(originalBuffer, self.get_scope(region))
             if formated:
                 self.view.replace(edit, region, formated)
 
-    def jsfmt(self, data):
+    def get_scope(self, region):
+        return self.view.scope_name(region.begin()).rpartition('.')[2].strip()
+
+    def jsfmt(self, data, scope):
         try:
-            return node_bridge(data, BIN_PATH, [json.dumps(settings.get('options'))])
+            opt = json.dumps(settings.get('options'))
+            optJSON = json.dumps(settings.get('options-JSON'))
+            return node_bridge(data, BIN_PATH, [opt, scope, optJSON])
         except Exception as e:
             sublime.error_message('JSFMT\n%s' % e)
 

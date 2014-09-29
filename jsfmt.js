@@ -4,10 +4,18 @@ var jsfmt = require('jsfmt');
 
 stdin(function(data) {
     // deep extend
-    var opts = extend(true, jsfmt.getConfig(), JSON.parse(process.argv[2]));
-
+    var scope = process.argv[3];
+    var conf = jsfmt.getConfig();
+    var opts = extend(true, conf, JSON.parse(process.argv[2]));
+    var optsJSON = extend(true, conf, JSON.parse(process.argv[4]));
+    var js;
     try {
-        var js = jsfmt.format(data, opts);
+
+        if (scope && scope == 'json') {
+            js = jsfmt.formatJSON(data, optsJSON);
+        } else {
+            js = jsfmt.format(data, opts);
+        }
         process.stdout.write(js);
     } catch ( err ) {
         throw err;
@@ -28,54 +36,54 @@ function extend() {
         trim = String.prototype.trim,
         indexOf = Array.prototype.indexOf,
         class2type = {
-            "[object Boolean]": "boolean",
-            "[object Number]": "number",
-            "[object String]": "string",
-            "[object Function]": "function",
-            "[object Array]": "array",
-            "[object Date]": "date",
-            "[object RegExp]": "regexp",
-            "[object Object]": "object"
+            '[object Boolean]': 'boolean',
+            '[object Number]': 'number',
+            '[object String]': 'string',
+            '[object Function]': 'function',
+            '[object Array]': 'array',
+            '[object Date]': 'date',
+            '[object RegExp]': 'regexp',
+            '[object Object]': 'object'
         },
         jQuery = {
             isFunction: function(obj) {
-                return jQuery.type(obj) === "function"
+                return jQuery.type(obj) === 'function';
             },
             isArray: Array.isArray || function(obj) {
-                return jQuery.type(obj) === "array"
+                return jQuery.type(obj) === 'array';
             },
             isWindow: function(obj) {
-                return obj != null && obj == obj.window
+                return obj != null && obj == obj.window;
             },
             isNumeric: function(obj) {
-                return !isNaN(parseFloat(obj)) && isFinite(obj)
+                return !isNaN(parseFloat(obj)) && isFinite(obj);
             },
             type: function(obj) {
-                return obj == null ? String(obj) : class2type[toString.call(obj)] || "object"
+                return obj == null ? String(obj) : class2type[toString.call(obj)] || 'object';
             },
             isPlainObject: function(obj) {
-                if (!obj || jQuery.type(obj) !== "object" || obj.nodeType) {
-                    return false
+                if (!obj || jQuery.type(obj) !== 'object' || obj.nodeType) {
+                    return false;
                 }
                 try {
-                    if (obj.constructor && !hasOwn.call(obj, "constructor") && !hasOwn.call(obj.constructor.prototype, "isPrototypeOf")) {
-                        return false
+                    if (obj.constructor && !hasOwn.call(obj, 'constructor') && !hasOwn.call(obj.constructor.prototype, 'isPrototypeOf')) {
+                        return false;
                     }
                 } catch ( e ) {
-                    return false
+                    return false;
                 }
                 var key;
                 for (key in obj) {}
-                return key === undefined || hasOwn.call(obj, key)
+                return key === undefined || hasOwn.call(obj, key);
             }
         };
-    if (typeof target === "boolean") {
+    if (typeof target === 'boolean') {
         deep = target;
         target = arguments[1] || {};
         i = 2;
     }
-    if (typeof target !== "object" && !jQuery.isFunction(target)) {
-        target = {}
+    if (typeof target !== 'object' && !jQuery.isFunction(target)) {
+        target = {};
     }
     if (length === i) {
         target = this;
@@ -87,12 +95,12 @@ function extend() {
                 src = target[name];
                 copy = options[name];
                 if (target === copy) {
-                    continue
+                    continue;
                 }
                 if (deep && copy && (jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)))) {
                     if (copyIsArray) {
                         copyIsArray = false;
-                        clone = src && jQuery.isArray(src) ? src : []
+                        clone = src && jQuery.isArray(src) ? src : [];
                     } else {
                         clone = src && jQuery.isPlainObject(src) ? src : {};
                     }
