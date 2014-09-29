@@ -48,7 +48,14 @@ class FormatJavascriptCommand(sublime_plugin.TextCommand):
         try:
             opt = json.dumps(settings.get('options'))
             optJSON = json.dumps(settings.get('options-JSON'))
-            return node_bridge(data, BIN_PATH, [opt, scope, optJSON])
+
+            # grab the cwd
+            if self.view.file_name():
+                cdir = dirname(self.view.file_name())
+            else:
+                cdir = "/"
+
+            return node_bridge(data, BIN_PATH, cdir, [opt, scope, optJSON])
         except Exception as e:
             sublime.error_message('JSFMT\n%s' % e)
 
