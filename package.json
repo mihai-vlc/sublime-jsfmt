@@ -2,12 +2,7 @@
   "name": "sublime-jsfmt",
   "dependencies": {
     "get-stdin": "^3.0.0",
-    "jsfmt": "^0.4.0",
-    "esformatter": "^0.4.2",
-    "esformatter-quotes": "^1.0.0",
-    "esformatter-semicolons": "^1.0.3",
-    "esformatter-braces": "^0.2.0"
-    
+    "jsfmt": "^0.4.0"
   },
   "engines": {
     "node": ">=0.10.0"
