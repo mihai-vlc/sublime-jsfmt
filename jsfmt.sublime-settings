@@ -1,0 +1,14 @@
+{
+    "autoformat": false,
+
+    // array of extensions for autoformat
+    "extensions": ["js"],
+
+    // options for jsfmt
+    "options": {
+        "preset": "jquery",
+        "indent": {
+            "value": "    "
+        }
+    }
+}

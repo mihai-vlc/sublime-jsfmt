@@ -1,0 +1,20 @@
+[
+    {
+        "caption": "JSFMT: Format the current file",
+        "command": "format_javascript"
+    },
+    {
+        "caption": "JSFMT: Toggle autoformat",
+        "command": "toggle_format_javascript"
+    },
+    {
+        "caption": "JSFMT: Settings - Default",
+        "command": "open_file",
+        "args": {"file": "${packages}/sublime-jsfmt/jsfmt.sublime-settings"}
+    },
+    {
+        "caption": "JSFMT: Settings - User",
+        "command": "open_file",
+        "args": {"file": "${packages}/User/jsfmt.sublime-settings"}
+    }
+]

@@ -1,0 +1,11 @@
+{
+  "name": "sublime-jsfmt",
+  "dependencies": {
+    "get-stdin": "^3.0.0",
+    "jsfmt": "^0.4.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "private": true
+}
