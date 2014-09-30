@@ -6,9 +6,16 @@ stdin(function(data) {
     // deep extend
     var scope = process.argv[3];
     var conf = jsfmt.getConfig();
-    var opts = extend(true, conf, JSON.parse(process.argv[2]));
     var optsJSON = extend(true, conf, JSON.parse(process.argv[4]));
+    var opts = conf;
     var js;
+
+    // if we don't have a jsfmtrc file
+    // use the settings from .sublime-settings
+    if( ! conf.config) {
+        opts = extend(true, conf, JSON.parse(process.argv[2]));
+    }
+
     try {
 
         if (scope && scope == 'json') {
