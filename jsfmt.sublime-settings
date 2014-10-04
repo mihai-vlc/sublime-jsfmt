@@ -23,7 +23,7 @@
             "esformatter-quotes"
         ],
         "quotes": {
-            "type": "double"
+            "type": "single"
         }
     }
 }
