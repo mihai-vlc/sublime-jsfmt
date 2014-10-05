@@ -19,13 +19,13 @@ Enable `autoformat` then save the file and it gets formatted.
 cd ~/Library/"Application Support/Sublime Text 2"/Packages
 
 # clone this repo
-git clone https://github.com/paulirish/sublime-jsfmt
+git clone https://github.com/paulirish/sublime-jsfmt jsfmt
 ```
 
 On windows open cmd and:
 ```
 cd %APPDATA%\"Sublime Text 3"\Packages
-git clone https://github.com/paulirish/sublime-jsfmt
+git clone https://github.com/paulirish/sublime-jsfmt jsfmt
 ```
 ### Plugins included
 - [esformatter-braces](https://github.com/pgilad/esformatter-braces)

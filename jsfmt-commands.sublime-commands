@@ -10,7 +10,7 @@
     {
         "caption": "JSFMT: Settings - Default",
         "command": "open_file",
-        "args": {"file": "${packages}/sublime-jsfmt/jsfmt.sublime-settings"}
+        "args": {"file": "${packages}/jsfmt/jsfmt.sublime-settings"}
     },
     {
         "caption": "JSFMT: Settings - User",
