@@ -1,4 +1,5 @@
 {
+    // autoformat on save
     "autoformat": false,
 
     // array of extensions for autoformat

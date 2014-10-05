@@ -1,4 +1,4 @@
-jsfmt for sublime text
+[jsfmt](https://github.com/rdio/jsfmt) for Sublime Text 2/3
 =================
 
 
@@ -9,7 +9,7 @@ And yeah, if you want it in Sublime Text this is your homeboy.
 
 ![](http://i.imgur.com/zkBvQ6X.gif)
 
-Save the file, it gets formatted.
+Enable `autoformat` then save the file and it gets formatted.
 
 ### Installation
 
@@ -22,15 +22,64 @@ cd ~/Library/"Application Support/Sublime Text 2"/Packages
 git clone https://github.com/paulirish/sublime-jsfmt
 ```
 
-This is very much NOT on package control because it its still a new thing. Try it out. 
-If its working for you and you want to help run the show I'll transfer the repo to 
-you and you can go to town. 
-
+On windows open cmd and:
+```
+cd %APPDATA%\"Sublime Text 3"\Packages
+git clone https://github.com/paulirish/sublime-jsfmt
+```
 ### Plugins included
 - [esformatter-braces](https://github.com/pgilad/esformatter-braces)
 - [esformatter-semicolons](https://github.com/bulyshko/esformatter-semicolons)
 - [esformatter-dot-notation](https://github.com/pgilad/esformatter-dot-notation)
 - [esformatter-quotes](https://github.com/millermedeiros/esformatter-quotes)
+
+
+### Settings
+```javascript
+{
+    // autoformat on save
+    "autoformat": false,
+
+    // array of extensions for autoformat
+    "extensions": ["js", "sublime-settings"],
+
+    // options for jsfmt
+    "options": {
+        "preset": "jquery",
+        "indent": {
+            "value": "    "
+        },
+        // plugins included
+        "plugins": [
+            // "esformatter-quotes",
+            // "esformatter-semicolons",
+            // "esformatter-braces",
+            // "esformatter-dot-notation"
+        ]
+    },
+    "options-JSON": {
+        "plugins": [
+            "esformatter-quotes"
+        ],
+        "quotes": {
+            "type": "double"
+        }
+    }
+}
+
+```
+
+### Commands
+**Command palette:**  
+
+- JSFMT: Format the current file
+- JSFMT: Toggle autoformat
+- JSFMT: Settings - Default
+- JSFMT: Settings - User
+
+**Menu:**  
+Preferences -> Package Settings -> Sublime JSFMT
+
 
 ### Formatting rules
 
@@ -45,13 +94,12 @@ Rules you can intuit from these [esformatter preset files](https://github.com/mi
 There's a `.jsfmtrc-sample` in this repo. It's a good start. Rename it and toss it 
 somewhere. Try it out. 
 
-#### compatibility 
+#### Compatibility 
 
-should work in both ST2 and ST3.
-
-
-### contributing
-
-go wild. i'll add you as repo owner and/or transfer it to you. it's all <3
+Should work in both ST2 and ST3.
 
 
+### Contributing
+
+If you find any bugs feel free to report them [here](https://github.com/paulirish/sublime-jsfmt/issues)  
+Pull requests are also encouraged.
