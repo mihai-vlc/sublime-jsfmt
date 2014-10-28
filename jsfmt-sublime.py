@@ -57,7 +57,11 @@ class FormatJavascriptCommand(sublime_plugin.TextCommand):
 
             return node_bridge(data, BIN_PATH, cdir, [opt, scope, optJSON])
         except Exception as e:
-            sublime.error_message('JSFMT\n%s' % e)
+            msg = '\n\nJSFMT ==>\n%s\n\n' % e
+            if settings.get('alert-errors', True):
+                sublime.error_message(msg)
+            else:
+                print(msg)
 
     def has_selection(self):
         for sel in self.view.sel():

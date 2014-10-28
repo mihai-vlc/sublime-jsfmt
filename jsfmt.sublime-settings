@@ -26,5 +26,6 @@
         "quotes": {
             "type": "double"
         }
-    }
+    },
+    "alert-errors": false
 }
