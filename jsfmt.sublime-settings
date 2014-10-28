@@ -27,5 +27,5 @@
             "type": "double"
         }
     },
-    "alert-errors": false
+    "alert-errors": true
 }
