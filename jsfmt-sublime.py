@@ -1,6 +1,7 @@
 import sublime
 import sublime_plugin
 import json
+import re
 from os.path import dirname, realpath, join, splitext
 
 try:
@@ -57,11 +58,16 @@ class FormatJavascriptCommand(sublime_plugin.TextCommand):
 
             return node_bridge(data, BIN_PATH, cdir, [opt, scope, optJSON])
         except Exception as e:
-            msg = '\n\nJSFMT ==>\n%s\n\n' % e
+            msg = "The formatting failed please check the console for more details."
+            # Seach for the line number in case of a js error
+            t = re.search('Error: Line [0-9]+: (.*)', str(e), flags=re.MULTILINE)
+            if t:
+                msg += '\n' + t.string[t.start():t.end()]
+
             if settings.get('alert-errors', True):
                 sublime.error_message(msg)
-            else:
-                print(msg)
+
+            print('\n\nJSFMT ==>\n%s\n\n' % e)
 
     def has_selection(self):
         for sel in self.view.sel():
