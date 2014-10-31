@@ -13,20 +13,25 @@ Enable `autoformat` then save the file and it gets formatted.
 
 ### Installation
 
+**Via package control**  
+Open your command palette -> Package Control: Install Package -> jsfmt
+
+**Manual**
 ```bash
 
 ## go to your ST packages folder. maybe something like …
 cd ~/Library/"Application Support/Sublime Text 2"/Packages
 
 # clone this repo
-git clone https://github.com/paulirish/sublime-jsfmt jsfmt
+git clone https://github.com/ionutvmi/sublime-jsfmt jsfmt
 ```
 
 On windows open cmd and:
 ```
 cd %APPDATA%\"Sublime Text 3"\Packages
-git clone https://github.com/paulirish/sublime-jsfmt jsfmt
+git clone https://github.com/ionutvmi/sublime-jsfmt jsfmt
 ```
+
 ### Plugins included
 - [esformatter-braces](https://github.com/pgilad/esformatter-braces)
 - [esformatter-semicolons](https://github.com/bulyshko/esformatter-semicolons)
@@ -64,7 +69,8 @@ git clone https://github.com/paulirish/sublime-jsfmt jsfmt
         "quotes": {
             "type": "double"
         }
-    }
+    },
+    "alert-errors": true
 }
 
 ```
@@ -84,7 +90,7 @@ Preferences -> Package Settings -> Sublime JSFMT
 ### Formatting rules
 
 You can set global rules via a `.jsfmtrc`. Be crazy and establish one for all your 
-projects in `~/.jsfmtrc`. (like in [my dotfiles](https://github.com/paulirish/dotfiles/blob/master/.jsfmtrc))
+projects in `~/.jsfmtrc`. (like in [my dotfiles](https://github.com/ionutvmi/dotfiles/blob/master/.jsfmtrc))
 
 Otherwise you're probably pretty levelheaded and will probably provide one in your 
 project root. It'll be read and applied.
@@ -101,5 +107,5 @@ Should work in both ST2 and ST3.
 
 ### Contributing
 
-If you find any bugs feel free to report them [here](https://github.com/paulirish/sublime-jsfmt/issues)  
+If you find any bugs feel free to report them [here](https://github.com/ionutvmi/sublime-jsfmt/issues)  
 Pull requests are also encouraged.
