@@ -90,7 +90,7 @@ Preferences -> Package Settings -> Sublime JSFMT
 ### Formatting rules
 
 You can set global rules via a `.jsfmtrc`. Be crazy and establish one for all your 
-projects in `~/.jsfmtrc`. (like in [my dotfiles](https://github.com/ionutvmi/dotfiles/blob/master/.jsfmtrc))
+projects in `~/.jsfmtrc`. (like in [dotfiles](https://github.com/paulirish/dotfiles/blob/master/.jsfmtrc))
 
 Otherwise you're probably pretty levelheaded and will probably provide one in your 
 project root. It'll be read and applied.
