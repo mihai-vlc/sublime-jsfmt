@@ -70,7 +70,9 @@ git clone https://github.com/ionutvmi/sublime-jsfmt jsfmt
             "type": "double"
         }
     },
-    "alert-errors": true
+    "alert-errors": true,
+    // path to nodejs
+    "node-path": "node"
 }
 
 ```

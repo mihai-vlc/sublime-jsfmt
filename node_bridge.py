@@ -9,7 +9,6 @@ SETTINGS_FILE = 'jsfmt.sublime-settings'
 
 def node_bridge(data, bin, cdir, args=[]):
 	settings = sublime.load_settings(SETTINGS_FILE)
-	print(settings.get('node-path'))
 	env = None
 	if IS_OSX:
 		# GUI apps in OS X doesn't contain .bashrc/.zshrc set paths
