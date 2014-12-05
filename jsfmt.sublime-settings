@@ -27,5 +27,6 @@
             "type": "double"
         }
     },
+    "node-path": "node",
     "alert-errors": true
 }
