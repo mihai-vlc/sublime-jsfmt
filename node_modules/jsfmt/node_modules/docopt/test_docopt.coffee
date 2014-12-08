@@ -76,7 +76,7 @@ setup()
 
 #{new Option, TokenStream, parse_shorts, parse_long,
 #                   parse_args, printable_usage, docopt} = module
-`with (require('./docopt')) { //`
+`with (require('./docopt.coffee')) { //`
 
 test "Option.parse", ->
     eq(
@@ -391,6 +391,16 @@ test "parse_pattern", ->
                 new OneOrMore [
                     new Argument 'ARG'
                 ]
+            ]
+        ]
+    )
+    eq(
+        parse_pattern '(--file <val>)...', o
+        new Required [
+            new OneOrMore [
+              new Required [
+                 new Option '-f', '--file', 1, '<val>'
+              ]
             ]
         ]
     )
@@ -1027,6 +1037,10 @@ test "options_without_description", ->
        new Dict([['-v', true], ['--verbose', false]]))
     eq(docopt('usage: git remote [-v | --verbose]', argv: 'remote -v'),
        new Dict([['remote', true], ['-v', true], ['--verbose', false]]))
+    eq(docopt('usage: cmd (--file=<val>)... --l=<x>', argv: '--file=first --file=second --file=third --l=1'),
+       new Dict([['--file', ['first', 'second', 'third']], ['--l', 1]]))
+    eq(docopt('usage: cmd (--file=<val>)... --l=<x>...', argv: '--file=first --l=1 --file=second --file=third --l=2'),
+       new Dict([['--file', ['first', 'second', 'third']], ['--l', [1, 2]]]))
 
 
 test 'allow_single_underscore', ->

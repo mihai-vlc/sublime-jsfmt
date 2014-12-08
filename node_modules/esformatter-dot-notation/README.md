@@ -69,4 +69,4 @@ See [esformatter](https://github.com/millermedeiros/esformatter) for more option
 
 ## License
 
-MIT ©2014 **Gilad Peleg**
+MIT @[Gilad Peleg](http://giladpeleg.com)

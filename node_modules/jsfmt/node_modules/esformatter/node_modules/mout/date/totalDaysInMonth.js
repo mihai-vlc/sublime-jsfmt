@@ -8,9 +8,7 @@ var isLeapYear = require('./isLeapYear');
      */
     function totalDaysInMonth(fullYear, monthIndex){
         if (isDate(fullYear)) {
-            var date = fullYear;
-            year = date.getFullYear();
-            monthIndex = date.getMonth();
+            monthIndex = fullYear.getMonth();
         }
 
         if (monthIndex === 1 && isLeapYear(fullYear)) {
