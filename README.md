@@ -102,6 +102,13 @@ Rules you can intuit from these [esformatter preset files](https://github.com/mi
 There's a `.jsfmtrc-sample` in this repo. It's a good start. Rename it and toss it 
 somewhere. Try it out. 
 
+### Installing plugins
+If you want to use a plugin that is not installed by default you will need to follow the next steps:
+1. Go to the packages folder (Preferences -> Browse Packages)
+2. cd into the jsfmt folder.
+3. Install the plugins you need.
+4. Go to your jsfmt settings file and add the name of the plugin in the plugins array.
+
 #### Compatibility 
 
 Should work in both ST2 and ST3.
