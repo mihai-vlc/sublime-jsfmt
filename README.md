@@ -104,6 +104,7 @@ somewhere. Try it out.
 
 ### Installing plugins
 If you want to use a plugin that is not installed by default you will need to follow the next steps:
+
 1. Go to the packages folder (Preferences -> Browse Packages)  
 2. cd into the jsfmt folder.  
 3. Install the plugins you need.  
