@@ -13,23 +13,19 @@ Enable `autoformat` then save the file and it gets formatted.
 
 ### Installation
 
-**Via package control**  
-Open your command palette -> Package Control: Install Package -> jsfmt
-
-**Manual**
 ```bash
 
 ## go to your ST packages folder. maybe something like …
-cd ~/Library/"Application Support/Sublime Text 2"/Packages
+cd ~/Library/"Application Support/Sublime Text 3"/Packages
 
 # clone this repo
-git clone https://github.com/ionutvmi/sublime-jsfmt jsfmt
+git clone https://github.com/Automattic/sublime-jsfmt jsfmt
 ```
 
 On windows open cmd and:
 ```
 cd %APPDATA%\"Sublime Text 3"\Packages
-git clone https://github.com/ionutvmi/sublime-jsfmt jsfmt
+git clone https://github.com/Automattic/sublime-jsfmt jsfmt
 ```
 
 ### Plugins included
