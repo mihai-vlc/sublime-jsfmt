@@ -1,6 +1,8 @@
 # [esformatter](https://github.com/millermedeiros/esformatter)-jsx-ignore
 > esformatter plugin: ignore jsx blocks so the rest of the javascript code could be formatted without parsing errors
 
+**NOTE**: If you want something that actually tries to apply some formatting to your javascript files try: [esformatter-jsx](https://www.npmjs.com/package/esformatter-jsx)
+
 [![NPM Version](http://img.shields.io/npm/v/esformatter-jsx-ignore.svg?style=flat)](https://npmjs.org/package/esformatter-jsx-ignore)
 [![Build Status](http://img.shields.io/travis/royriojas/esformatter-jsx-ignore.svg?style=flat)](https://travis-ci.org/royriojas/esformatter-jsx-ignore)
 
@@ -45,7 +47,7 @@ React.render(<Hello message="world"/>, document.body);
 
 ## Future Goals
 
-- Try to apply some formatting to the actual jsx nodes, instead of blindly ignore them
+- ~~Try to apply some formatting to the actual jsx nodes, instead of blindly ignore them~~.**Done, use [esformatter-jsx](https://github.com/royriojas/esformatter-jsx) instead**
 - Render this plugin obsolete when esformatter support this out of the box. Check: https://github.com/millermedeiros/esformatter/issues/242
 
 ## Installation

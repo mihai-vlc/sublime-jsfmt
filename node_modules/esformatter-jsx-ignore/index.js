@@ -1,5 +1,15 @@
 var falafel = require('fresh-falafel');
 
+function hasXJSElementAsParent( node ) {
+  while ( node.parent ) {
+    if ( node.parent.type === 'XJSElement' ) {
+      return true;
+    }
+    node = node.parent;
+  }
+  return false;
+}
+
 module.exports = {
   _sections: [],
   stringBefore: function (code) {
@@ -13,7 +23,7 @@ module.exports = {
     // parse the code
     code = falafel(code, function (node) {
       // if a JSX node
-      if (node.type === 'XJSElement' && node.parent.type !== 'XJSElement') {
+      if (node.type === 'XJSElement' && ! hasXJSElementAsParent( node ) ) {
         // save the source
         sections.push(node.source());
         // replace it with a token like `void(0)/*$$$_XJS_ELEMENT_$$$*/`
