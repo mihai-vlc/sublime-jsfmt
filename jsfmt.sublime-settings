@@ -28,5 +28,6 @@
         }
     },
     "node-path": "node",
-    "alert-errors": true
+    "alert-errors": true,
+    "ignore-selection": false
 }

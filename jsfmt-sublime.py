@@ -26,7 +26,7 @@ def plugin_loaded():
 
 class FormatJavascriptCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        if not self.has_selection():
+        if not self.has_selection() or settings.get('ignore-selection', False):
             region = sublime.Region(0, self.view.size())
             originalBuffer = self.view.substr(region)
             formated = self.jsfmt(originalBuffer, self.get_scope(region))
