@@ -3,7 +3,7 @@
     "autoformat": false,
 
     // array of extensions for autoformat
-    "extensions": ["js", "sublime-settings"],
+    "extensions": ["js", "jsx", "sublime-settings"],
 
     // options for jsfmt
     "options": {
