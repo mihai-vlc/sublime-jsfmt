@@ -1,7 +1,7 @@
 'use strict';
 
-var tk = require('rocambole-token');
 var rocambole = require('rocambole');
+var tk = require('rocambole-token');
 var unquotedValidator = require('unquoted-property-validator');
 
 var transormToDotNotation = function (node) {
