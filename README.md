@@ -90,6 +90,13 @@ git clone https://github.com/ionutvmi/sublime-jsfmt jsfmt
 **Menu:**  
 Preferences -> Package Settings -> Sublime JSFMT
 
+**Keyboard shortcut**
+If you want to trigger the formatting on a keyboard shortcut you will need to:
+- Go to Preferences -> Key Bindings - User
+- Insert the configuration to call the `format_javascript` command
+```js
+{ "keys": ["ctrl+q"], "command": "format_javascript" },
+```
 
 ### Formatting rules
 
