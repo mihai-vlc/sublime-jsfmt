@@ -19,6 +19,9 @@ var maecennas = 'ipsum \'dolor\' sit "amet"';
 
 var unnecessaryEscape = 'bar \'baz\' "dolor"';
 
+var escapedSlashesSingle = 'bar \\"baz\\"';
+var escapedSlashesDouble = "bar \\'baz\\'";
+
 var leadingSingle = "'";
 var leadingDouble = '"';
 var unnecessaryEscapeSingle = "'";

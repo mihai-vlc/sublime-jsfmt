@@ -72,6 +72,10 @@ describe('recursive()', function () {
         expect( count_2 ).to.be( 5 );
     });
 
+    it('should be aliased as walk() to avoid confusions', function () {
+        expect( rocambole.walk ).to.be( rocambole.recursive );
+    });
+
 });
 
 

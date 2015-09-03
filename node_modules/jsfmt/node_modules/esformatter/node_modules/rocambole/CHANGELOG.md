@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.7.0 (2015/08/26)
+
+ - Ignore TryStatement's "handlers" property in favor of "handler"
+
 ## v0.6.0 (2015/03/30)
 
  - allow custom parser. (#27)

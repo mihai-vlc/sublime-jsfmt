@@ -1,5 +1,5 @@
 a:
-for (var b = 0; b < 3; b++) {
+for (var b = 0 ; b < 3   ; b++) {
   c:
   for (var d = 0; d < 3; d++) {
     if (b == 1 && d == 1) {
@@ -11,3 +11,5 @@ for (var b = 0; b < 3; b++) {
     break
   }
 }
+
+for ( ;  ;) {}

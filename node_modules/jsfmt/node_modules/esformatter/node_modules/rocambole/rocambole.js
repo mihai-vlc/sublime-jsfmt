@@ -21,9 +21,13 @@ exports.BYPASS_RECURSION = {
     next : true,
     prev : true,
 
-    // esprima@2.1 introduces a "handler" property on TryStatement, so we would
+    // esprima@2.1 introduces a "handler" property on TryStatement in addition to
+    // "handlers", which contains the same node, so we would
     // loop the same node twice (see jquery/esprima/issues/1031 and #264)`
-    handler : true,
+    //
+    // Instead, ignore the handlers list in favor of the standardized "handler"
+    // property: https://github.com/eslint/eslint/issues/1930
+    handlers : true,
 
     // IMPORTANT! "value" can't be bypassed since it is used by object
     // expression
