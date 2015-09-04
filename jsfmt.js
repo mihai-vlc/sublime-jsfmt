@@ -4,8 +4,7 @@ var jsfmt = require('jsfmt');
 var extend = require('extend');
 
 
-stdin(function(data) {
-    // deep extend
+stdin().then(function(data) {
     var scope = process.argv[3];
     var conf = jsfmt.getConfig();
 
