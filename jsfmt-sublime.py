@@ -14,15 +14,18 @@ except:
 sublime.Region.totuple = lambda self: (self.a, self.b)
 sublime.Region.__iter__ = lambda self: self.totuple().__iter__()
 
+
 BIN_PATH = join(sublime.packages_path(), dirname(realpath(__file__)), 'jsfmt.js')
 SETTINGS_FILE = 'jsfmt.sublime-settings'
 
 
 settings = sublime.load_settings(SETTINGS_FILE)
 
+
 def plugin_loaded():
     global settings
     settings = sublime.load_settings(SETTINGS_FILE)
+
 
 class FormatJavascriptCommand(sublime_plugin.TextCommand):
     def run(self, edit):
@@ -77,12 +80,11 @@ class FormatJavascriptCommand(sublime_plugin.TextCommand):
         return False
 
 
-
 class CommandOnSave(sublime_plugin.EventListener):
-  def on_pre_save(self, view):
-    ext = splitext(view.file_name())[1][1:]
-    if settings.get('autoformat') and ext in settings.get('extensions', ['js']):
-        view.run_command("format_javascript")
+    def on_pre_save(self, view):
+        ext = splitext(view.file_name())[1][1:]
+        if settings.get('autoformat') and ext in settings.get('extensions', ['js']):
+            view.run_command("format_javascript")
 
 
 class ToggleFormatJavascriptCommand(sublime_plugin.TextCommand):
