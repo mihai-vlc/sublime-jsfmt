@@ -4,7 +4,7 @@ var stdin = require('get-stdin');
 var jsfmt = require('jsfmt');
 var extend = require('extend');
 
-stdin().then(function(data) {
+stdin(function(data) {
     var scope = process.argv[3];
     var conf = jsfmt.getConfig();
     var optsJSON = extend({}, conf, JSON.parse(process.argv[4]));
