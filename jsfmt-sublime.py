@@ -56,6 +56,8 @@ class FormatJavascriptCommand(sublime_plugin.TextCommand):
             # grab the cwd
             if self.view.file_name():
                 cdir = dirname(self.view.file_name())
+                if settings.get('use-local-jsfmt', True):
+                    return node_bridge(data, BIN_PATH, cdir, [opt, scope, optJSON, cdir])
             else:
                 cdir = "/"
 

@@ -71,10 +71,15 @@ git clone https://github.com/ionutvmi/sublime-jsfmt jsfmt
         }
     },
     "alert-errors": true,
+
     // path to nodejs
     "node-path": "node",
+
     // if true it will format the whole file even if you have a selection active
-    "ignore-selection": false
+    "ignore-selection": false,
+
+    // if true it will use the projects local jsfmt/plugins
+    "use-local-jsfmt": true
 }
 
 ```
