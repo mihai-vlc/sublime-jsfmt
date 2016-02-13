@@ -1,4 +1,4 @@
-/*global describe:false, it:false, beforeEach:false */
+/*global describe:false, it:false, beforeEach:false, afterEach:false */
 "use strict";
 
 var expect = require('expect.js');
@@ -367,6 +367,65 @@ describe('parse', function () {
         expect(elements[1].type).to.be('Literal');
         expect(elements[1].value).to.be(3);
       });
+    });
+
+    describe('custom parseFn', function() {
+        var _parseFn;
+        var _parseContext;
+        var _parseOptions;
+        var empty = {
+            type: 'Program',
+            body: [],
+            range: [0,0],
+            comments: [],
+            tokens: []
+        };
+
+        beforeEach(function() {
+            _parseFn = rocambole.parseFn;
+            _parseContext = rocambole.parseContext;
+            _parseOptions = rocambole.parseOptions;
+        });
+
+        afterEach(function() {
+            rocambole.parseFn = _parseFn;
+            rocambole.parseContext = _parseContext;
+            rocambole.parseOptions = _parseOptions;
+            rocambole.parseOptions.tokens = true;
+        });
+
+        it('should allow global override of parseFn', function() {
+            var obj = {};
+
+            expect(rocambole.parseOptions).to.eql({
+                range: true,
+                comment: true,
+                tokens: true
+            });
+
+            rocambole.parseOptions.tokens = 567;
+
+            rocambole.parseContext = obj;
+            rocambole.parseFn = function(source, opts) {
+                expect(this).to.be(obj);
+                expect(opts).to.eql({
+                    loc: true,
+                    foo: 'bar',
+                    range: 123,
+                    tokens: 567,
+                    comment: true
+                });
+                expect(source).to.eql('bar()');
+                return empty;
+            };
+            var result = rocambole.parse('bar()', {
+                loc: true,
+                foo: 'bar',
+                range: 123
+            });
+            expect(result).to.be(empty);
+        });
+
     });
 
 });

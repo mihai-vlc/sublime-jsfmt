@@ -1,8 +1,4 @@
-"use strict"
-
 import protochain from 'protochain'
-
-export default serializerr
 
 function serializerr(obj = {}) {
   let chain = protochain(obj)
@@ -16,4 +12,6 @@ function serializerr(obj = {}) {
   }, {})
 }
 
+module.exports = serializerr
 serializerr.serializerr = serializerr
+export default serializerr

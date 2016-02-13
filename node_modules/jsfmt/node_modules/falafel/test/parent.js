@@ -4,10 +4,10 @@ var test = require('tape');
 test('parent', function (t) {
     t.plan(5);
     
-    var src = '(' + function () {
-        var xs = [ 1, 2, 3 ];
-        fn(ys);
-    } + ')()';
+    var src = '(function () {'
+        + 'var xs = [ 1, 2, 3 ];'
+        + 'fn(ys);'
+    + '})()';
     
     var output = falafel(src, function (node) {
         if (node.type === 'ArrayExpression') {

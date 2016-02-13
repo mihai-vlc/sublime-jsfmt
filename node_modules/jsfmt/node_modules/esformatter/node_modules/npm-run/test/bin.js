@@ -117,6 +117,29 @@ test('--help', function(t) {
   })
 })
 
+test('bad command', function(t) {
+  var child = spawn(
+    npmRunBin,
+    ['command-does-not-exist'],
+    {cwd: level[0]}
+  )
+  var stdout = bl(function(err, data) {
+    t.ok(data.toString().trim().indexOf('not found:') !== -1, 'contains not found message')
+  })
+  var stderr = bl(function(err, data) {
+    t.equal(data.toString().trim(), '')
+  })
+  child.stdout.pipe(stdout)
+  child.stderr.pipe(stderr)
+  child.once('error', function(error) {
+    t.fail(error)
+  })
+  child.on('close', function(errCode) {
+    t.notEqual(errCode, 0)
+    t.end()
+  })
+})
+
 test('no args', function(t) {
   var child = spawn(
     npmRunBin,

@@ -1,3 +1,7 @@
+2.0.0 / 2015-03-22
+==================
+
+  * Alter API to be simple wrapper around child_process methods.
 
 1.1.1 / 2015-03-06
 ==================

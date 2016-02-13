@@ -85,7 +85,7 @@ Name was selected as programming world is mostly Americanised, and npm
 search does not seem to do effective stemming.
 
 This decision came with strong feelings of guilt and shame about what I thought
-was blasphemous Americanized spelling, but it turns out this is a
+was blasphemous Americanised spelling, but it turns out this is a
 misconception thus I am pardoned:
 
 > The -ize spelling is often incorrectly seen as an Americanism in

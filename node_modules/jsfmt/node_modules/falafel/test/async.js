@@ -4,11 +4,11 @@ var test = require('tape');
 test('array', function (t) {
     t.plan(5);
     
-    var src = '(' + function () {
-        var xs = [ 1, 2, [ 3, 4 ] ];
-        var ys = [ 5, 6 ];
-        g([ xs, ys ]);
-    } + ')()';
+    var src = '(function () {'
+        + 'var xs = [ 1, 2, [ 3, 4 ] ];'
+        + 'var ys = [ 5, 6 ];'
+        + 'g([ xs, ys ]);'
+    + '})()';
     
     var pending = 0;
     var output = falafel(src, function (node) {

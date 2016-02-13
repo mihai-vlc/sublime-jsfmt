@@ -7,7 +7,7 @@
     "esformatter-semicolons": "^1.1.1",
     "extend": "^3.0.0",
     "get-stdin": "^4.0.1",
-    "jsfmt": "^0.5.0"
+    "jsfmt": "^0.5.3"
   },
   "engines": {
     "node": ">=0.10.0"
