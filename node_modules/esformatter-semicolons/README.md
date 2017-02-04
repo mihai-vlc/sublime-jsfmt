@@ -26,6 +26,7 @@ Add to your esformatter config file:
 
 * [Antoine Lehurt](https://github.com/kewah)
 * [Martin Heidegger](https://github.com/martinheidegger)
+* [Tommy Maintz](https://github.com/TommyM)
 
 ## License
 

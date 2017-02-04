@@ -105,5 +105,5 @@ function isSemicolon(token) {
 }
 
 function isLoop(node) {
-  return node && ~['ForStatement', 'ForInStatement'].indexOf(node.type);
+  return node && ~['ForStatement', 'ForInStatement', 'ForOfStatement'].indexOf(node.type);
 }

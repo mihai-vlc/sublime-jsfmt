@@ -1,0 +1,33 @@
+{
+  "name": "esformatter-parser",
+  "version": "1.0.0",
+  "description": "JavaScript parser used by esformatter",
+  "main": "esformatter-parser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/millermedeiros/esformatter-parser.git"
+  },
+  "keywords": [
+    "babel",
+    "babylon",
+    "esformatter",
+    "esprima",
+    "parser",
+    "rocambole"
+  ],
+  "author": "Miller Medeiros",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/millermedeiros/esformatter-parser/issues"
+  },
+  "homepage": "https://github.com/millermedeiros/esformatter-parser#readme",
+  "dependencies": {
+    "acorn-to-esprima": "^2.0.8",
+    "babel-traverse": "^6.9.0",
+    "babylon": "^6.8.0",
+    "rocambole": "^0.7.0"
+  }
+}

@@ -30,7 +30,7 @@ exports.setOptions = function(opts) {
 };
 
 
-exports.tokenBefore = function(token) {
+exports.tokenAfter = function(token) {
   if (disabled) return;
 
   if (token.type === 'String') {

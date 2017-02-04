@@ -1,6 +1,7 @@
 [jsfmt](https://github.com/rdio/jsfmt) for Sublime Text 2/3
 =================
 
+![](https://david-dm.org/ionutvmi/sublime-jsfmt)
 
 If you want your javascript automatically formatted to abide a particular style, 
 then jsfmt is for you.  No need to read warnings and fix things yourself. 

@@ -1,0 +1,29 @@
+{
+  "name": "rocambole-node",
+  "version": "1.0.0",
+  "description": "Helpers to traverse and manipulate rocambole AST nodes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/millermedeiros/rocambole-node.git"
+  },
+  "keywords": [
+    "rocambole",
+    "ast",
+    "helper",
+    "node"
+  ],
+  "author": "Miller Medeiros <contact@millermedeiros.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/millermedeiros/rocambole-node/issues"
+  },
+  "homepage": "https://github.com/millermedeiros/rocambole-node",
+  "jshintConfig": {
+    "node": true,
+    "boss": true
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "npm-run",
+  "version": "2.0.0",
+  "description": "Run locally-installed executables.",
+  "main": "index.js",
+  "bin": {
+    "npm-run": "bin/npm-run.js"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "author": "Tim Oxley",
+  "license": "MIT",
+  "devDependencies": {
+    "bl": "^0.9.4",
+    "tape": "^3.5.0"
+  },
+  "dependencies": {
+    "minimist": "^1.1.1",
+    "npm-path": "^1.0.1",
+    "npm-which": "^2.0.0",
+    "serializerr": "^1.0.1",
+    "spawn-sync": "^1.0.5",
+    "sync-exec": "^0.5.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timoxley/npm-run.git"
+  },
+  "keywords": [
+    "npm",
+    "path",
+    "executable",
+    "run"
+  ],
+  "bugs": {
+    "url": "https://github.com/timoxley/npm-run/issues"
+  },
+  "homepage": "https://github.com/timoxley/npm-run"
+}

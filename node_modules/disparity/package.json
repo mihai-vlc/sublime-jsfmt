@@ -1,0 +1,40 @@
+{
+  "name": "disparity",
+  "version": "2.0.0",
+  "description": "Colorized string diff ideal for text/code that spans through multiple lines",
+  "main": "disparity.js",
+  "bin": "bin/disparity",
+  "scripts": {
+    "test": "node test/runner.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/millermedeiros/disparity.git"
+  },
+  "keywords": [
+    "diff",
+    "char",
+    "unified",
+    "multiline",
+    "string",
+    "color",
+    "ansi",
+    "terminal",
+    "cli",
+    "tty"
+  ],
+  "author": "Miller Medeiros <http://millermedeiros.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/millermedeiros/disparity/issues"
+  },
+  "homepage": "https://github.com/millermedeiros/disparity",
+  "dependencies": {
+    "ansi-styles": "^2.0.1",
+    "diff": "^1.3.2"
+  },
+  "jshintConfig": {
+    "node": true,
+    "eqnull": true
+  }
+}

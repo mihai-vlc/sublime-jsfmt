@@ -1,0 +1,31 @@
+{
+  "name": "rocambole-token",
+  "version": "1.2.1",
+  "description": "Helpers for rocambole AST token manipulation",
+  "main": "./index.js",
+  "scripts": {
+    "test": "jasmine-node test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/millermedeiros/rocambole-token.git"
+  },
+  "keywords": [
+    "ast",
+    "token",
+    "rocambole"
+  ],
+  "author": "Miller Medeiros <contact@millermedeiros.com> (http://blog.millermedeiros.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/millermedeiros/rocambole-token/issues"
+  },
+  "homepage": "https://github.com/millermedeiros/rocambole-token",
+  "devDependencies": {
+    "rocambole": "~0.2.3",
+    "jasmine-node": "~1.11.0"
+  },
+  "jshintConfig": {
+    "node": true
+  }
+}
