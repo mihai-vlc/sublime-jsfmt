@@ -3,7 +3,6 @@
 var npmPath = require('npm-path')
 var child_process = require('child_process')
 var syncExec = require('sync-exec')
-var spawnSync = require('spawn-sync')
 
 var exec = child_process.exec
 
@@ -46,7 +45,7 @@ function npmSpawnSync(command, args, options) {
   command = a[0]
   args = a[1]
   options = a[2]
-  return spawnSync(command, args, augmentOptionsSync(options))
+  return child_process.spawnSync(command, args, augmentOptionsSync(options))
 }
 
 function npmExecSync(command, options) {

@@ -27,12 +27,11 @@ Due to npm's install algorithm `node_modules/.bin` is not guaranteed to contain 
 
 ## API
 
-The API of `npm-run` basically wraps `child_process` methods and executes
-them with an [npm-path](https://github.com/timoxley/npm-path) augmented PATH i.e. any 
+The API of `npm-run` basically wraps `child_process` methods such that Any executable available to an npm lifecycle script is on the PATH.
 
 ## npmRun(command[, options], callback)
 
-Alias of npmRun.exec
+Alias of npmRun.exec.
 
 ## npmRun.exec(command[, options], callback)
 
@@ -75,6 +74,23 @@ var child = npmRun.spawnSync(
 child.stdout // stdout Buffer|String
 child.stderr // stderr Buffer|String
 child.status // exit code
+```
+
+## npmRun.spawn(command[, args][, options])
+
+Takes same arguments as node's [spawn](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options).
+
+```js
+var child = npmRun.spawn(
+  'mocha',
+  '--debug-brk --sort'.split(' '),
+  {cwd: __dirname + '/tests'}
+)
+child.stdout // stdout Stream
+child.stderr // stderr Stream
+child.on('exit', function(code) {
+  code // exit code
+})
 ```
 
 ### See Also
