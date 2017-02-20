@@ -1,11 +1,13 @@
 'use strict';
 
 var stdin = require('get-stdin');
-var jsfmt = require('jsfmt');
 var extend = require('extend');
+var path = require('path');
+var fs = require('fs');
 
 stdin(function(data) {
     var scope = process.argv[3];
+    var jsfmt = getJsfmt(process.argv[5]);
     var conf = jsfmt.getConfig();
     var optsJSON = extend({}, conf, JSON.parse(process.argv[4]));
     var opts = conf;
@@ -32,3 +34,19 @@ stdin(function(data) {
     }
 });
 
+function getJsfmt(localJsfmt) {
+    var jsfmt;
+    var loader = path.join(localJsfmt, '__sublime-load-jsfmt.js');
+    if (localJsfmt) {
+        try {
+            fs.writeFileSync(loader, "module.exports = require('jsfmt');");
+            jsfmt = require(loader);
+            fs.unlinkSync(loader);
+            return jsfmt;
+        } catch ( e ) {
+            throw e;
+            fs.unlinkSync(loader);
+        }
+    }
+    return require('jsfmt');
+}

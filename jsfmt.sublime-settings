@@ -29,5 +29,6 @@
     },
     "node-path": "node",
     "alert-errors": true,
-    "ignore-selection": false
+    "ignore-selection": false,
+    "use-local-jsfmt": true
 }
